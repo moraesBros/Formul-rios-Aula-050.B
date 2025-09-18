@@ -14,7 +14,7 @@
 
   <div class="container">
 
-    <!-- 1) As mensagens ficam aqui, acima do separador -->
+    <!-- Mensagens acima do separador -->
     <h1 class="greeting">
       {% if name %}
         Ola, {{ name }}!
@@ -42,25 +42,21 @@
     <!-- separador -->
     <div class="separator"></div>
 
-    <!-- 2) Formulários ficam aqui, abaixo do separador -->
-    <p class="prompt">Qual o seu nome?</p>
+    <!-- Um único formulário com todos os campos -->
     <form method="post" novalidate>
+      <p class="prompt">Qual o seu nome?</p>
       <input type="text" name="name" placeholder="Digite seu nome" class="input-name">
-      <button type="submit" class="btn-submit">Enviar nome</button>
-    </form>
 
-    <p class="prompt">Qual é a sua instituição de ensino?</p>
-    <form method="post" novalidate>
+      <p class="prompt">Qual é a sua instituição de ensino?</p>
       <input type="text" name="institution" placeholder="Digite sua instituição" class="input-name">
-      <button type="submit" class="btn-submit">Enviar instituição</button>
-    </form>
 
-    <p class="prompt">Qual é a sua disciplina?</p>
-    <form method="post" novalidate>
+      <p class="prompt">Qual é a sua disciplina?</p>
       <input type="text" name="discipline" placeholder="Digite sua disciplina" class="input-name">
-      <button type="submit" class="btn-submit">Enviar disciplina</button>
+
+      <button type="submit" class="btn-submit">Enviar tudo</button>
     </form>
 
   </div>
 </body>
 </html>
+
