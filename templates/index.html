@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Flasky Moraes</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Flasky Moraes</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <nav class="navbar">
     <span class="brand">Avaliação contínua: <b>Aula 050.B</b></span>
     <a href="#" class="nav-link">Home</a>
-     <a href="#" class="nav-link">Login</a>
+    <a href="#" class="nav-link">Login</a>
   </nav>
 
   <div class="container">
+
+    <!-- 1) As mensagens ficam aqui, acima do separador -->
     <h1 class="greeting">
       {% if name %}
         Ola, {{ name }}!
@@ -21,39 +23,30 @@
       {% endif %}
     </h1>
 
-    <div class="separator"></div>
-
-    <p class="prompt">Qual o seu nome?</p>
-
-    {% if error %}
-      <div class="error">{{ error }}</div>
-    {% endif %}
-    <form method="post" novalidate>
-      <input type="text" name="name" placeholder="" class="input-name">
-      <button type="submit" class="btn-submit">Submit</button>
-    </form>
-
-<div class="container">
     <h2 class="greeting">
-      {% if name %}
-        A sua instituição de ensino é Nome {{ name }}!
+      {% if institution %}
+        A sua instituição de ensino é {{ institution }}!
       {% else %}
-        A sua instituição de ensino é
+        A sua instituição de ensino é Nome!
       {% endif %}
     </h2>
 
+    <!-- separador -->
     <div class="separator"></div>
 
-    <p class="prompt">Qual é a sua instituição de ensino?</p>
-
-    {% if error %}
-      <div class="error">{{ error }}</div>
-    {% endif %}
-
+    <!-- 2) Formulários ficam aqui, abaixo do separador -->
+    <p class="prompt">Qual o seu nome?</p>
     <form method="post" novalidate>
-      <input type="text" name="name" placeholder="" class="input-name">
-      <button type="submit" class="btn-submit">Submit</button>
+      <input type="text" name="name" placeholder="Digite seu nome" class="input-name">
+      <button type="submit" class="btn-submit">Enviar nome</button>
     </form>
+
+    <p class="prompt">Qual é a sua instituição de ensino?</p>
+    <form method="post" novalidate>
+      <input type="text" name="institution" placeholder="Digite sua instituição" class="input-name">
+      <button type="submit" class="btn-submit">Enviar instituição</button>
+    </form>
+
   </div>
 </body>
 </html>
