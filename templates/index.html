@@ -27,7 +27,15 @@
       {% if institution %}
         A sua instituição de ensino é {{ institution }}!
       {% else %}
-        A sua instituição de ensino é Nome!
+        A sua instituição de ensino é Nome
+      {% endif %}
+    </h2>
+
+    <h2 class="greeting">
+      {% if discipline %}
+        Está cursando a disciplina de {{ discipline }}!
+      {% else %}
+        Está cursando a disciplina de Nome
       {% endif %}
     </h2>
 
@@ -45,6 +53,12 @@
     <form method="post" novalidate>
       <input type="text" name="institution" placeholder="Digite sua instituição" class="input-name">
       <button type="submit" class="btn-submit">Enviar instituição</button>
+    </form>
+
+    <p class="prompt">Qual é a sua disciplina?</p>
+    <form method="post" novalidate>
+      <input type="text" name="discipline" placeholder="Digite sua disciplina" class="input-name">
+      <button type="submit" class="btn-submit">Enviar disciplina</button>
     </form>
 
   </div>
