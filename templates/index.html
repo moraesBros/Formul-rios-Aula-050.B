@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Flasky Moraes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <span class="brand">Flasky</span>
+    <a href="#" class="nav-link">Home</a>
+  </nav>
+
+  <div class="container">
+    <h1 class="greeting">
+      {% if name %}
+        Hello, {{ name }}!
+      {% else %}
+        Hello, stranger!
+      {% endif %}
+    </h1>
+
+    <div class="separator"></div>
+
+    <p class="prompt">What is your name?</p>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" novalidate>
+      <input type="text" name="name" placeholder="Digite seu nome" class="input-name">
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
