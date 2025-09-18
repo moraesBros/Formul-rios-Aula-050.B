@@ -42,19 +42,48 @@
     <!-- separador -->
     <div class="separator"></div>
 
-    <!-- Um único formulário com todos os campos -->
-    <form method="post" novalidate>
-      <p class="prompt">Qual o seu nome?</p>
-      <input type="text" name="name" placeholder="Digite seu nome" class="input-name">
 
-      <p class="prompt">Qual é a sua instituição de ensino?</p>
-      <input type="text" name="institution" placeholder="Digite sua instituição" class="input-name">
+<form method="post" novalidate>
 
-      <p class="prompt">Qual é a sua disciplina?</p>
-      <input type="text" name="discipline" placeholder="Digite sua disciplina" class="input-name">
+  <p class="prompt">Qual o seu nome?</p>
+  <input
+    type="text"
+    name="name"
+    placeholder="Digite seu nome"
+    class="input-name"
+    value="{{ name }}"
+  >
+  {% if errors.name %}
+    <div class="error">{{ errors.name }}</div>
+  {% endif %}
 
-      <button type="submit" class="btn-submit">Enviar tudo</button>
-    </form>
+  <p class="prompt">Qual é a sua instituição de ensino?</p>
+  <input
+    type="text"
+    name="institution"
+    placeholder="Digite sua instituição"
+    class="input-name"
+    value="{{ institution }}"
+  >
+  {% if errors.institution %}
+    <div class="error">{{ errors.institution }}</div>
+  {% endif %}
+
+  <p class="prompt">Qual é a sua disciplina?</p>
+  <input
+    type="text"
+    name="discipline"
+    placeholder="Digite sua disciplina"
+    class="input-name"
+    value="{{ discipline }}"
+  >
+  {% if errors.discipline %}
+    <div class="error">{{ errors.discipline }}</div>
+  {% endif %}
+
+  <button type="submit" class="btn-submit">Enviar tudo</button>
+</form>
+
 
   </div>
 </body>
