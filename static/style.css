@@ -1,0 +1,80 @@
+/* Barra preta no topo */
+.navbar {
+  background-color: #000;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Texto cinza que vira branco no hover */
+.navbar .brand,
+.navbar .nav-link {
+  color: grey;
+  margin-right: 40px;
+  text-decoration: none;
+  font-size: 1.2em;
+  cursor: pointer;
+
+  /* margem esquerda igual ao comprimento de "Flasky" (6 caracteres) */
+  margin-left: 18ch;
+  margin-right: 20px;
+}
+.navbar .brand:hover,
+.navbar .nav-link:hover {
+  color: #fff;
+}
+
+/* Container central */
+.container {
+  width: 960px;        /* 3×320px */
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* Título principal – agora alinhado à esquerda do formulário */
+.greeting {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Linha cinza com a largura do formulário */
+.separator {
+  border-top: 1px solid grey;
+  width: 960px;        /* 3×320px */
+  margin: 10px auto 20px;
+}
+
+/* Texto menor – alinhado à esquerda do formulário */
+.prompt {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Estilo do input – agora com largura igual à da linha */
+.input-name {
+  width: 960px;        /* antes: 320px */
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+/* Botão permanece com a largura original */
+.btn-submit {
+  width: 320px;        /* mantém 320px */
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
