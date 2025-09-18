@@ -7,29 +7,34 @@
 </head>
 <body>
   <nav class="navbar">
-    <span class="brand">Flasky</span>
+    <span class="brand">Avaliação contínua: <b>Aula 050.B</b></span>
     <a href="#" class="nav-link">Home</a>
+     <a href="#" class="nav-link">Login</a>
   </nav>
 
   <div class="container">
     <h1 class="greeting">
       {% if name %}
-        Hello, {{ name }}!
+        Ola, {{ name }}!
       {% else %}
-        Hello, stranger!
+        Ola, Estranho!
       {% endif %}
     </h1>
 
     <div class="separator"></div>
 
-    <p class="prompt">What is your name?</p>
+    <p class="prompt">Qual o seu nome?</p>
 
     {% if error %}
       <div class="error">{{ error }}</div>
     {% endif %}
 
     <form method="post" novalidate>
-      <input type="text" name="name" placeholder="Digite seu nome" class="input-name">
+      <input type="text" name="name" placeholder="" class="input-name">
+      <input type="text" name="name" placeholder="" class="input-name">
+      <input type="text" name="name" placeholder="" class="input-name">
+      <input type="text" name="name" placeholder="" class="input-name">
+      <input type="text" name="name" placeholder="" class="input-name">
       <button type="submit" class="btn-submit">Submit</button>
     </form>
   </div>
