@@ -28,12 +28,29 @@
     {% if error %}
       <div class="error">{{ error }}</div>
     {% endif %}
-
     <form method="post" novalidate>
       <input type="text" name="name" placeholder="" class="input-name">
-      <input type="text" name="name" placeholder="" class="input-name">
-      <input type="text" name="name" placeholder="" class="input-name">
-      <input type="text" name="name" placeholder="" class="input-name">
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+
+<div class="container">
+    <h2 class="greeting">
+      {% if name %}
+        A sua instituição de ensino é Nome {{ name }}!
+      {% else %}
+        A sua instituição de ensino é
+      {% endif %}
+    </h2>
+
+    <div class="separator"></div>
+
+    <p class="prompt">Qual é a sua instituição de ensino?</p>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" novalidate>
       <input type="text" name="name" placeholder="" class="input-name">
       <button type="submit" class="btn-submit">Submit</button>
     </form>
