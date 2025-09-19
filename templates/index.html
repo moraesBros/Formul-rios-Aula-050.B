@@ -7,7 +7,9 @@
 </head>
 <body>
   <nav class="navbar">
-    <span class="brand">Avaliação contínua: <b>Aula 050.B</b></span>
+      <a href="{{ url_for('index') }}" class="brand">
+    Avaliação contínua: <b>Aula 050.B</b>
+  </a>
     <a href="#" class="nav-link">Home</a>
     <a href="#" class="nav-link">Login</a>
   </nav>
@@ -39,53 +41,66 @@
       {% endif %}
     </h2>
 
+    <!-- <h3> com a mesma classe de alinhamento dos prompts -->
+    <h3 class="prompt">
+      O IP do computador remoto é: {{ remote_ip or 'Nome' }}
+    </h3>
+    <h3 class="prompt">
+      O host da aplicação é: {{ host_name or 'Nome' }}
+    </h3>
+
     <!-- separador -->
     <div class="separator"></div>
 
+    <!-- Formulário único -->
+    <form method="post" novalidate>
+      <p class="prompt">Qual o seu nome?</p>
+      <input
+        type="text"
+        name="name"
+        placeholder="Digite seu nome"
+        class="input-name"
+        value="{{ name }}"
+      >
+      {% if errors.name %}
+        <div class="error">{{ errors.name }}</div>
+      {% endif %}
 
-<form method="post" novalidate>
+      <p class="prompt">Qual é a sua instituição de ensino?</p>
+      <input
+        type="text"
+        name="institution"
+        placeholder="Digite sua instituição"
+        class="input-name"
+        value="{{ institution }}"
+      >
+      {% if errors.institution %}
+        <div class="error">{{ errors.institution }}</div>
+      {% endif %}
 
-  <p class="prompt">Qual o seu nome?</p>
-  <input
-    type="text"
-    name="name"
-    placeholder="Digite seu nome"
-    class="input-name"
-    value="{{ name }}"
-  >
-  {% if errors.name %}
-    <div class="error">{{ errors.name }}</div>
-  {% endif %}
+      <p class="prompt">Qual é a sua disciplina?</p>
+      <input
+        type="text"
+        name="discipline"
+        placeholder="Digite sua disciplina"
+        class="input-name"
+        value="{{ discipline }}"
+      >
+      {% if errors.discipline %}
+        <div class="error">{{ errors.discipline }}</div>
+      {% endif %}
 
-  <p class="prompt">Qual é a sua instituição de ensino?</p>
-  <input
-    type="text"
-    name="institution"
-    placeholder="Digite sua instituição"
-    class="input-name"
-    value="{{ institution }}"
-  >
-  {% if errors.institution %}
-    <div class="error">{{ errors.institution }}</div>
-  {% endif %}
+      <button type="submit" class="btn-submit">Enviar tudo</button>
+    </form>
 
-  <p class="prompt">Qual é a sua disciplina?</p>
-  <input
-    type="text"
-    name="discipline"
-    placeholder="Digite sua disciplina"
-    class="input-name"
-    value="{{ discipline }}"
-  >
-  {% if errors.discipline %}
-    <div class="error">{{ errors.discipline }}</div>
-  {% endif %}
-
-  <button type="submit" class="btn-submit">Enviar tudo</button>
-</form>
-
+    <!-- <h5> com a mesma classe de prompts, abaixo do separador -->
+    <h5 class="prompt">
+      The local date and time is {{ current_time or 'September 18, 2025 6:35 PM' }}.
+    </h5>
+    <h5 class="prompt">
+      That was {{ elapsed_time or '2 hours ago' }}.
+    </h5>
 
   </div>
 </body>
 </html>
-
