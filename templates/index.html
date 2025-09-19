@@ -93,14 +93,59 @@
       <button type="submit" class="btn-submit">Enviar tudo</button>
     </form>
 
-    <!-- <h5> com a mesma classe de prompts, abaixo do separador -->
-    <h5 class="prompt">
-      The local date and time is {{ current_time or 'September 18, 2025 6:35 PM' }}.
-    </h5>
-    <h5 class="prompt">
-      That was {{ elapsed_time or '2 hours ago' }}.
-    </h5>
+   <h5 class="prompt">
+  The local date and time is <span id="local-time">--</span>.
+</h5>
+<h5 class="prompt">
+  That was <span id="elapsed-time">0s</span> ago.
+</h5>
 
   </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // referências aos spans
+    const localTimeEl   = document.getElementById('local-time');
+    const elapsedTimeEl = document.getElementById('elapsed-time');
+
+    // instante em que a página carregou
+    const startTime = new Date();
+
+    // função que atualiza ambos campos
+    function updateClocks() {
+      const now = new Date();
+
+      // formata mês dia e ano
+      const monthName = now.toLocaleString('default', { month: 'long' });
+      const day       = now.getDate();
+      const year      = now.getFullYear();
+      const hh        = String(now.getHours()).padStart(2, '0');
+      const mm        = String(now.getMinutes()).padStart(2, '0');
+
+      localTimeEl.textContent = `${monthName} ${day}, ${year} ${hh}:${mm}`;
+
+      // calcula diferença em segundos
+      const diffMs       = now - startTime;
+      const totalSec     = Math.floor(diffMs / 1000);
+      const hrs          = Math.floor(totalSec / 3600);
+      const mins         = Math.floor((totalSec % 3600) / 60);
+      const secs         = totalSec % 60;
+
+      // monta string de elapsed
+      let elapsedStr = '';
+      if (hrs) elapsedStr += `${hrs}h `;
+      if (mins) elapsedStr += `${mins}m `;
+      elapsedStr += `${secs}s`;
+
+      elapsedTimeEl.textContent = elapsedStr;
+    }
+
+    // primeira chamada e agendamento a cada segundo
+    updateClocks();
+    setInterval(updateClocks, 1000);
+  });
+</script>
+
+
 </body>
 </html>
